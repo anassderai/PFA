@@ -41,7 +41,7 @@ let player () =
   player Cst.("player1", player_x, player_y, player_color, player_width, player_height, player_mass)
 
 
-let players () = 
+let player1 () = 
   let Global.{player1; _ } = Global.get () in
   player1
 
