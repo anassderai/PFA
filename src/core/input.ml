@@ -18,9 +18,9 @@ let handle_input () =
       if has_key key then action ()) action_table
 
 let () =
-  register "z" (fun () -> Player.(move_player (player()) Cst.player_up));
-  register "s" (fun () -> Player.(move_player (player()) Cst.player_down));
-  register "d" (fun () -> Player.(move_player (player()) Cst.player_right));
-  register "q" (fun () -> Player.(move_player (player()) Cst.player_left));
-  register " " (fun () -> Player.(move_player (player()) Cst.player_jump));
+  register "z" (fun () -> Player.(move_player (player1()) Cst.player_up));
+  register "s" (fun () -> Player.(move_player (player1()) Cst.player_down));
+  register "d" (fun () -> Player.(move_player (player1()) Cst.player_right));
+  register "q" (fun () -> Player.(move_player (player1()) Cst.player_left));
+  register " " (fun () -> Player.(move_player (player1()) Cst.player_jump));
 
