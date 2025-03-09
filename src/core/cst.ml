@@ -26,15 +26,17 @@ let player_right = Vector.{ x = 5.0; y = 0.0 }
 let player_left = Vector.{ x = -5.0; y = 0.0 }
 let player_jump = Vector.{ x = 0.0; y = -10.0 }
 
-let wall_thickness = 5
+let wall_thickness = 1
+let ground_thickness = 40
 
 let hwall_width = window_width
-let hwall_height = wall_thickness
-let hwall1_x = 0
-let hwall1_y = 0
-let hwall2_x = 0
-let hwall2_y = window_height -  wall_thickness
-let hwall_color = Texture.black
+let top_wall_height = wall_thickness
+let bot_wall_height = ground_thickness
+let top_wall_x = 0
+let top_wall_y = 0
+let bot_wall_x = 0
+let bot_wall_y = window_height - ground_thickness
+let hwall_color = Texture.transparent
 
 let vwall_width = wall_thickness
 let vwall_height = window_height - 2 * wall_thickness
@@ -42,7 +44,11 @@ let vwall1_x = 0
 let vwall1_y = wall_thickness
 let vwall2_x = window_width - wall_thickness
 let vwall2_y = vwall1_y
-let vwall_color = Texture.black
+let vwall_color = Texture.transparent
 
 let font_name = if Gfx.backend = "js" then "monospace" else "resources/images/monospace.ttf"
 let font_color = Gfx.color 0 0 0 255
+
+
+let background_x = 0
+let background_y = 0

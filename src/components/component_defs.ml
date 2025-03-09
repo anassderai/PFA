@@ -52,6 +52,19 @@ class sum_forces () =
     method sum_forces = s 
   end
 
+class index_draw () = 
+  let id = Component.init 0 in 
+  object 
+    method index_draw = id
+  end
+
+class room () = 
+  let r = Component.init 0 in 
+  object 
+    method room = r 
+  end
+
+
 (** Interfaces : ici on liste simplement les types des classes dont on hérite
     si deux classes définissent les mêmes méthodes, celles de la classe écrite
     après sont utilisées (héritage multiple).
@@ -72,6 +85,7 @@ class type drawable =
     inherit position
     inherit box
     inherit texture
+    inherit index_draw
   end
 
 class type movable = 
@@ -104,17 +118,8 @@ class player name =
     inherit velocity () 
     inherit mass () 
     inherit sum_forces () 
-  end
-
-class ball () =
-  object
-    inherit Entity.t ()
-    inherit position ()
-    inherit box ()
-    inherit tagged ()
-    inherit texture ()
-    inherit resolver ()
-    inherit velocity ()
+    inherit index_draw () 
+    inherit room () 
   end
 
 class wall () =
@@ -128,5 +133,18 @@ class wall () =
     inherit mass () 
     inherit sum_forces ()
     inherit velocity ()
+    inherit index_draw () 
 
   end
+
+class background () = 
+  object 
+    inherit Entity.t ()
+    inherit tagged () 
+    inherit texture ()
+    inherit position () 
+    inherit box ()
+    inherit index_draw () 
+  end
+
+

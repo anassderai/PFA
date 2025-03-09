@@ -13,15 +13,17 @@ let player (name, x, y, txt, width, height, mass) =
   e#velocity#set Vector.zero;
   e#mass#set mass;
   e#sum_forces#set Vector.zero;
+  e#index_draw#set 2;
+  e#room#set 0;
 
   e#resolve#set (fun _ t ->
     match t#tag#get with
     Wall.HWall (w) -> 
       let pos_w = w#position#get in 
       let pos_e = e#position#get in 
-    if pos_w.y = 0.0 then begin e#position#set Vector.{x = pos_e.x; y = pos_e.y+.4.0}; e#velocity#set Vector.zero
+    if pos_w.y = 0.0 then begin e#position#set Vector.{x = pos_e.x; y = pos_e.y+.0.0}; e#velocity#set Vector.zero
     end 
-    else begin e#position#set Vector.{x = pos_e.x; y = pos_e.y-.4.0}; e#velocity#set Vector.zero end 
+    else begin e#position#set Vector.{x = pos_e.x; y = pos_e.y-.2.0}; e#velocity#set Vector.zero end 
     |Wall.VWall (i,_) -> 
       let pos_e = e#position#get in
       if i=1 (*gauche *) then e#position#set Vector.{x = pos_e.x +.4.0 ; y = pos_e.y}
@@ -30,10 +32,10 @@ let player (name, x, y, txt, width, height, mass) =
     |_ -> ()
   );
 
+  Draw_system.(register (e :> t));
   Collision_system.(register (e :> t));
   Force_system.(register (e:>t));
   Move_system.(register (e:>t));
-  Draw_system.(register (e :> t));
   
   e
 
@@ -46,7 +48,7 @@ let player1 () =
   player1
 
 
-let stop_player () = 
+let stop_players () = 
   let Global.{player1; _ } = Global.get () in
   player1#velocity#set Vector.zero
 

@@ -11,6 +11,8 @@ let wall (x, y, txt, width, height, horiz) =
                HWall e else VWall((if x < 100 then 1 else 2), e));
   e#box#set Rect.{width; height};
   e#mass#set Float.infinity;
+  e#index_draw#set 2;
+
   Draw_system.(register (e :> t));
   Collision_system.(register (e :> t));
   Force_system.(register(e:> t));
@@ -19,8 +21,8 @@ let wall (x, y, txt, width, height, horiz) =
 let walls () = 
   List.map wall
     Cst.[ 
-      (hwall1_x, hwall1_y, hwall_color, hwall_width, hwall_height, true);
-      (hwall2_x, hwall2_y, hwall_color, hwall_width, hwall_height, true);
+      (top_wall_height, top_wall_y, hwall_color, hwall_width, top_wall_height, true);
+      (bot_wall_x, bot_wall_y, hwall_color, hwall_width, bot_wall_height, true);
       (vwall1_x, vwall1_y, vwall_color, vwall_width, vwall_height, false);
       (vwall2_x, vwall2_y, vwall_color, vwall_width, vwall_height, false);
     ]
