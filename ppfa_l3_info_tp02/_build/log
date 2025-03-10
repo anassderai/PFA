@@ -1,0 +1,30 @@
+# dune build
+# OCAMLPARAM: unset
+# Shared cache: enabled-except-user-rules
+# Shared cache location: /home/aderai/.cache/dune/db
+# Workspace root:
+# /mnt/c/Users/anass/Desktop/PFA-main2/PFA-main/ppfa_l3_info_tp02
+# Auto-detected concurrency: 16
+# Dune context:
+#  { name = "default"
+#  ; kind = "default"
+#  ; profile = Release
+#  ; merlin = true
+#  ; fdo_target_exe = None
+#  ; build_dir = In_build_dir "default"
+#  ; instrument_with = []
+#  }
+$ /home/aderai/.opam/my_switch/bin/ocamlc.opt -config > /tmp/dune_690efe_output
+$ /home/aderai/.opam/my_switch/bin/js_of_ocaml --version > /tmp/dune_f5fc28_output
+$ (cd _build/default && /home/aderai/.opam/my_switch/bin/ocamldep.opt -modules -impl src/components/wall.ml) > _build/default/src/.game.objs/game__Wall.impl.d
+$ (cd _build/default && /home/aderai/.opam/my_switch/bin/ocamldep.opt -modules -impl src/core/input.ml) > _build/default/src/.game.objs/game__Input.impl.d
+$ (cd _build/default && /home/aderai/.opam/my_switch/bin/ocamlc.opt -w -40 -g -bin-annot -I src/.game.objs/byte -I lib/ecs/.ecs.objs/byte -I lib/gfx/.gfx.objs/byte -no-alias-deps -open Game__ -o src/.game.objs/byte/game__Wall.cmo -c -impl src/components/wall.ml)
+$ (cd _build/default && /home/aderai/.opam/my_switch/bin/ocamlc.opt -w -40 -g -bin-annot -I src/.game.objs/byte -I lib/ecs/.ecs.objs/byte -I lib/gfx/.gfx.objs/byte -no-alias-deps -open Game__ -o src/.game.objs/byte/game__Input.cmo -c -impl src/core/input.ml)
+$ (cd _build/default && /home/aderai/.opam/my_switch/bin/ocamlc.opt -w -40 -g -bin-annot -I src/.game.objs/byte -I lib/ecs/.ecs.objs/byte -I lib/gfx/.gfx.objs/byte -no-alias-deps -open Game__ -o src/.game.objs/byte/game.cmo -c -impl src/game.ml)
+$ (cd _build/default && /home/aderai/.opam/my_switch/bin/ocamlc.opt -w -40 -g -bin-annot -I prog/.game_js.eobjs/byte -I /home/aderai/.opam/my_switch/lib/js_of_ocaml -I /home/aderai/.opam/my_switch/lib/js_of_ocaml-compiler/runtime -I lib/ecs/.ecs.objs/byte -I lib/gfx/gfx_jsoo/.gfx_jsoo.objs/byte -I src/.game.objs/byte -no-alias-deps -o prog/.game_js.eobjs/byte/dune__exe__Game_js.cmo -c -impl prog/game_js.pp.ml)
+$ (cd _build/default && /home/aderai/.opam/my_switch/bin/ocamlc.opt -w -40 -g -a -o src/game.cma src/.game.objs/byte/game__.cmo src/.game.objs/byte/game__Vector.cmo src/.game.objs/byte/game__Rect.cmo src/.game.objs/byte/game__Texture.cmo src/.game.objs/byte/game__Component_defs.cmo src/.game.objs/byte/game__Collision.cmo src/.game.objs/byte/game__Cst.cmo src/.game.objs/byte/game__Global.cmo src/.game.objs/byte/game__Draw.cmo src/.game.objs/byte/game__Forces.cmo src/.game.objs/byte/game__Move.cmo src/.game.objs/byte/game__System_defs.cmo src/.game.objs/byte/game__Wall.cmo src/.game.objs/byte/game__Player.cmo src/.game.objs/byte/game__Input.cmo src/.game.objs/byte/game__Background.cmo src/.game.objs/byte/game.cmo src/.game.objs/byte/game__Box.cmo)
+$ (cd _build/default && /home/aderai/.opam/my_switch/bin/ocamlc.opt -w -40 -g -o prog/game_js.bc-for-jsoo -no-check-prims -noautolink lib/ecs/ecs.cma /home/aderai/.opam/my_switch/lib/js_of_ocaml-compiler/runtime/jsoo_runtime.cma /home/aderai/.opam/my_switch/lib/js_of_ocaml/js_of_ocaml.cma lib/gfx/gfx_jsoo/gfx_jsoo.cma src/game.cma prog/.game_js.eobjs/byte/dune__exe__Game_js.cmo)
+# Promoting "_build/default/prog/game_js.bc-for-jsoo" to
+# "prog/game_js.bc-for-jsoo"
+$ (cd _build/default/prog && /home/aderai/.opam/my_switch/bin/js_of_ocaml --no-source-map -o game_js.bc.js game_js.bc-for-jsoo)
+# Promoting "_build/default/prog/game_js.bc.js" to "prog/game_js.bc.js"
