@@ -26,11 +26,6 @@ class tagged () =
     method tag = r
   end
 
-class on_ground () =
-  let r = Component.init (true) in 
-  object 
-    method on_ground = r 
-  end
 
 class resolver () =
   let r = Component.init (fun (_ : Vector.t) (_ : tagged) -> ()) in
@@ -68,6 +63,12 @@ class room () =
   let r = Component.init 0 in 
   object 
     method room = r 
+  end
+
+class on_ground () =
+  let r = Component.init (true) in 
+  object 
+    method on_ground = r 
   end
 
 (** Interfaces : ici on liste simplement les types des classes dont on hérite
