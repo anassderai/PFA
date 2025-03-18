@@ -1,0 +1,11 @@
+match index with 
+    |0 -> Background 
+    |1 -> Player 
+    |2 -> Wall 
+    |3 -> Box 
+    |4 -> Corde 
+    |5
+    |6 -> Portal 
+    |7 -> Platform
+
+
