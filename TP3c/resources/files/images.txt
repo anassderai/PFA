@@ -1,4 +1,0 @@
-desert_background.png
-deep_forest.png
-portal.png
-portal_2.png
