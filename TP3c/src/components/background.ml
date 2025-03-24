@@ -15,12 +15,12 @@ let create img =
   background := Some bg;
   bg
 
-let background = 
+let background () = 
   match !background with
   | Some b -> b
   | None -> failwith "Background not initialized"
 
 let set img = 
-  let b = background in
+  let b = background () in
   b#texture#set img
   

@@ -1,3 +1,5 @@
+let () = Printexc.record_backtrace true
+
 open System_defs
 open Cst 
 
@@ -45,7 +47,7 @@ let (let@) a b = Gfx.main_loop a b
 
 let run () =
 
-  Gfx.debug "Game start %!";
+  Gfx.debug "Game start \n %!";
 
   init;     (* Init window and wall *)
 
@@ -54,7 +56,6 @@ let run () =
   (* Load images : *)
   let win = Game_state.get_window () in
   let ctx = Gfx.get_context win in
-  Gfx.debug "1 %!";
   let file = Gfx.load_file "resources/files/images.txt" in
   let@ txt = fun _ -> Gfx.get_resource_opt file in 
   let images_r = 
@@ -72,9 +73,9 @@ let run () =
     |> List.map (fun img -> Texture.Image img)
     |> Array.of_list
   in
-  Gfx.debug "Textures loaded %!";
+  Gfx.debug "Textures loaded \n %!";
   Level.level_0 textures;
-  Gfx.debug "Level loaded %!";
+  Gfx.debug "Level loaded \n %!";
 
   Gfx.main_loop update (fun () -> ())
 

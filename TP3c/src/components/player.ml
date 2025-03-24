@@ -15,7 +15,6 @@ let create x y w h texture mass =
   p#mass#set mass;
   p#sum_forces#set Vector.zero;
   p#on_ground#set true;
-  p#room#set 0;
   p#index#set 1;
   p#move#set 0;
   
