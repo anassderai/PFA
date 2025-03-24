@@ -16,9 +16,9 @@ let level_0 t =
 
   (* init portal *)
 
-let level_1 = ()
+let level_1 =
 
-  let platform_1 ()
+  Platform.platform_1 ()
     
 
 
