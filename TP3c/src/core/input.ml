@@ -9,22 +9,23 @@ let register key action = Hashtbl.replace action_table key action
 let saut_pressed = ref false 
 
 let handle_input () =
-  let p1 = Player.player() in 
+  let p = Player.player () in 
   let () =
     match Gfx.poll_event () with
-    | KeyDown "z" -> set_key "z"; p1#move#set 1
-    | KeyDown "q" -> set_key "q"; p1#move#set 2
-    | KeyDown "d" -> set_key "d"; p1#move#set 3
+    | KeyDown "z" -> set_key "z"; p#move#set 1
+    | KeyDown "q" -> set_key "q"; p#move#set 2
+    | KeyDown "d" -> set_key "d"; p#move#set 3
 
     | KeyDown s -> set_key s
-    | KeyUp s -> unset_key s; p1#move#set 0
+    | KeyUp s -> unset_key s; p#move#set 0
+    | Quit -> exit 0
     | _ -> ()
   in
   Hashtbl.iter (fun key action ->
       if has_key key then action ()) action_table
 
 let () =
-  register "z" (fun () -> Player.(move_player (player()) Cst.player_up));
-  (* register "s" (fun () -> Player.(move_player (player()) Cst.player_down)); *)
-  register "d" (fun () -> Player.(move_player (player()) Cst.player_right));
-  register "q" (fun () -> Player.(move_player (player()) Cst.player_left));
+  register "z" (fun () -> Player.(move_player (player ()) Cst.player_up));
+  (* register "s" (fun () -> Player.(move_player (player ()) Cst.player_down)); *)
+  register "d" (fun () -> Player.(move_player (player ()) Cst.player_right));
+  register "q" (fun () -> Player.(move_player (player ()) Cst.player_left));

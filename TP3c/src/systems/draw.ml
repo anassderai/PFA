@@ -6,12 +6,6 @@ let init _ = ()
 
 let white = Gfx.color 255 255 255 255
 
-(* let clear _dt el = 
-  Seq.iter (fun (e:t) -> 
-    
-      Draw_system.unregister e
-  ) el *)
-
 
 let update _dt el =
   let win = Game_state.get_window () in

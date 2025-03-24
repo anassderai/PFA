@@ -97,11 +97,11 @@ let collision_portal e =
 let check_entity e1 e2 =
   match e1#index#get, e2#index#get with
     |0,_ | _,0 -> failwith "Background is not collidable"
-    |1,2 | 2,1 | 1,3 | 3,1 | 1,7 | 7,1 | 3,2 | 2,3 | 3,7 | 7,3 -> collision e1 e2 
+    |1,2 | 2,1 | 1,3 | 3,1 | 1,7 | 7,1 | 3,2 | 2,3 | 3,7 | 7,3 | 3,3-> collision e1 e2 
     |1,6 -> collision_portal e1
     |6,1 -> collision_portal e2
     |1,4 | 4,1 -> () (* Collision corde *)
-    |_ -> failwith "Mustn't happen"
+    |_ -> ()
 
 let update _dt el =
   try 

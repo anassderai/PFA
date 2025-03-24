@@ -50,12 +50,6 @@ class index =
   end
 (* values => cf fichier index.txt en dehors du src *)
 
-class room = 
-  object 
-    val room = Component.def 0
-    method room = room
-  end
-
 class on_ground = 
   object 
     val on_ground = Component.def false
@@ -72,7 +66,6 @@ class move =
   * 1 : jump
   * 2 : left
   * 3 : right
-
 *)
 
 (* Some complex components *)
@@ -123,7 +116,6 @@ class player =
     inherit! collidable
     inherit! physics
     inherit on_ground
-    inherit room
     inherit move
   end
 
@@ -159,7 +151,6 @@ object
   inherit! collidable
   inherit! physics
 end
-
 
 
 
