@@ -18,11 +18,7 @@ let level_0 t =
 
 let level_1 = ()
 
-  (* Hashtbl.iter (fun e _ -> 
-    if e#index#get == 3 || e#index#get == 4  || e#index#get == 5  || 
-                           e#index#get == 6 || e#index#get == 7 then 
-      Draw_system.unregister e else ()) *)
-
+  let platform_1 ()
     
 
 

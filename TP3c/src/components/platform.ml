@@ -1,21 +1,23 @@
 open Component_defs
 open System_defs
 
-type tag += Platform of platform
+let platform = ref [||]
 
-let platform (x, y, txt, width, height) =
-  let e = new platform () in
-  e#texture#set txt;
-  e#position#set Vector.{x = float x; y = float y};
-  e#box#set Rect.{width; height};
-  e#index_draw#set 2;
+let create x y w h texture =
+  let p = new platform in
+  p#pos#set Vector.{ x = float x; y = float y };
+  p#rect#set Rect.{width = w; height = h};
+  p#texture#set texture;
+  p#mass#set Float.infinity;
+  p#index#set 7;
+  Draw_system.register (p :> drawable);
+  Collision_system.register (p :> collidable);
+  Force_system.register (p :> physics);
+  p
 
-  Draw_system.(register (e :> t));
 
-  e
-
-let platform ()=
-  List.map platform
+let platform_1 () =
+  platform := Array.map create
     Cst.[
       (56, 320, Texture.yellow, 48, 8);
       (64, 272,Texture.yellow, 40, 8);
@@ -30,5 +32,8 @@ let platform ()=
       (532,252, Texture.yellow, 68,4);
       (636, 200, Texture.yellow, 52, 8);
       (740, 160, Texture.yellow, 60,8);
-      (736, 96, Texture.red, 64,64)(*portail*)
     ]
+
+
+
+(* (736, 96, Texture.red, 64,64)(*portail*)*)
