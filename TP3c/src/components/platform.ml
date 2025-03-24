@@ -12,3 +12,7 @@ let create x y w h texture mass =
   Collision_system.register (p :> collidable);
   Force_system.register (p :> physics);
   p
+
+
+let platform2 = 
+  
