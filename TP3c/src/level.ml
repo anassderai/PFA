@@ -3,6 +3,8 @@ open System_defs
 
 let textures = ref [||]
 
+let room = ref 0
+
 let level_0 t = 
   textures := t;
   ignore (Background.create !textures.(0) );
@@ -33,9 +35,8 @@ let level_4 = ()
 let level_5 = ()
 
 let next_level = 
-  let p = Player.player () in
-  p#room#set (p#room#get + 1);
-  match p#room#get with
+  room := !room + 1;
+  match !room with
     |1 -> level_1
     |2 -> level_2
     |3 -> level_3
