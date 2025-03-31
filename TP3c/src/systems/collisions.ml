@@ -86,16 +86,15 @@ let collision e1 e2 =
     if Float.is_infinite m2 then e2#velocity#set Vector.zero;
   end
 
-let collision_portal e = 
-  Transition.next
+let collision_portal () = 
+  Transition.next ()
 
 
 let check_entity e1 e2 =
   match e1#index#get, e2#index#get with
     |0,_ | _,0 -> failwith "Background is not collidable"
     |1,2 | 2,1 | 1,3 | 3,1 | 1,7 | 7,1 | 3,2 | 2,3 | 3,7 | 7,3 | 3,3-> collision e1 e2 
-    |1,6 -> collision_portal e1
-    |6,1 -> collision_portal e2
+    |1,6 |6,1 -> collision_portal ()
     |1,4 | 4,1 -> () (* Collision corde *)
     |_ -> ()
 

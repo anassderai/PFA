@@ -32,10 +32,10 @@ let white = Gfx.color 255 255 255 2555
 *)
 let update dt =
   Input.handle_input ();
-  if Transition.is_ok then
+  if Transition.is_ok () then
     begin
-      Gfx.debug "Update %d \n %!" Transition.get;
-      Transition.reset;
+      Gfx.debug "Update %d \n %!" (Transition.get ());
+      Transition.reset ();
       Level.next_level ()
     end;
   Collision_system.update dt;
