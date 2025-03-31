@@ -9,11 +9,13 @@ let room = ref 0
 
 let level_0 t = 
   textures := t;
+
+  Platform.unregister_1 ();
+
   ignore (Background.create !textures.(0) );
 
   ignore (Player.create player_x player_y player_width player_height player_texture player_mass);
 
-  (*ignore(Box.create 100 (window_height - ground_thickness- 50-5) 50 50 !textures.(4) 1.0);*)
   (* init platform *)
   
   Box.box_1 !textures.(4)

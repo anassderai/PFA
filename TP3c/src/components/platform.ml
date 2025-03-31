@@ -17,6 +17,7 @@ let create x y w h  =
 
 
 let platform_1 () =
+  Gfx.debug "Platform 1\n %!";
   platform := 
     [|
       create 56 320 48 8;
@@ -34,7 +35,7 @@ let platform_1 () =
       create 740 160 60 8;
     |]
 
-let unregister () = 
+let unregister_1 () = 
   Array.iter (fun p -> 
     Draw_system.unregister (p :> drawable);
     Collision_system.unregister (p :> collidable);
