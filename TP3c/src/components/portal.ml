@@ -15,8 +15,5 @@ let create x y w h texture =
   Collision_system.register (p :> collidable);
   Force_system.register (p :> physics);
   p
-
-let portal_tst texture = 
-  ignore(create 700 (window_height - ground_thickness - 64) 64 64 texture )
-
+  
 (*let portal_1 () =  (736; 96; Texture.red; 64;64)(*portail*)*)
