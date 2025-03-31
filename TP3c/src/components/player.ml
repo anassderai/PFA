@@ -1,5 +1,7 @@
 open Component_defs
 open System_defs
+open Cst
+
 
 let player_instance = ref None
 
@@ -9,7 +11,7 @@ let get_textures = !textures *)
 
 let create x y w h texture mass = 
   let p = new player in 
-  p#pos#set Vector.{x = float x; y = float y };
+  p#pos#set Vector.{x = x; y = y };
   p#rect#set Rect.{width = w; height = h};
   p#texture#set texture;
   p#mass#set mass;
@@ -40,6 +42,13 @@ let set_img img =
   let p = player () in
   p#texture#set img
 
+let reset () = 
+  let p = player () in
+  p#pos#set Vector.{x = 700.0; y = player_y};
+  p#sum_forces#set Vector.zero;
+  p#on_ground#set true;
+  p#move#set 0;
+  p#velocity#set Vector.zero
 (* let check_move = 
   let textures = get_textures in
   let p = player () in

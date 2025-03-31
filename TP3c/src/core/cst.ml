@@ -31,11 +31,11 @@ let vwall2_y = vwall1_y
 let vwall_color = Texture.transparent
 
 
-let player_width = 36     (* 36/4 = 12*)
+let player_width = 36     (* 36/4 = 9*)
 let player_height = 64    (* 64/4 = 16*)
 
-let player_x = 100
-let player_y = window_height - ground_thickness - player_height
+let player_x = 100.0
+let player_y = float (window_height - ground_thickness - player_height)
 
 let player_mass = 5.0
 
