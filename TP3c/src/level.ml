@@ -10,7 +10,7 @@ let room = ref 0
 let level_0 t = 
   textures := t;
 
-  Platform.unregister_1 ();
+  Platform.unregister ();
 
   ignore (Background.create !textures.(0) );
 
