@@ -1,5 +1,8 @@
 open Component_defs
-open System_defs
+open System_defs 
+open Cst
+
+(* On crée un portail *)
 
 let create x y w h texture =
   let p = new portal in
@@ -13,6 +16,7 @@ let create x y w h texture =
   Force_system.register (p :> physics);
   p
 
-
+let portal_tst texture = 
+  ignore(create 700 (window_height - ground_thickness - 64) 64 64 texture )
 
 (*let portal_1 () =  (736; 96; Texture.red; 64;64)(*portail*)*)
