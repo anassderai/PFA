@@ -34,8 +34,9 @@ let update dt =
   Input.handle_input ();
   if Transition.is_ok then
     begin
+      Gfx.debug "Update %d \n %!" Transition.get;
       Transition.reset;
-      Level.next_level;
+      Level.next_level ()
     end;
   Collision_system.update dt;
   Force_system.update dt;
@@ -49,7 +50,7 @@ let run () =
 
   Gfx.debug "Game start \n %!";
 
-  init;     (* Init window and wall *)
+  init;
 
   (* init_squares; *)
 

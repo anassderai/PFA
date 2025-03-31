@@ -20,7 +20,7 @@ let background () =
   | Some b -> b
   | None -> failwith "Background not initialized"
 
-let set img = 
+let set_img img = 
   let b = background () in
   b#texture#set img
   

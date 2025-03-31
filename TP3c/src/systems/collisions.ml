@@ -1,8 +1,5 @@
 open Component_defs
 
-exception Break
-exception Continue
-
 type t = collidable
 
 let init _ = ()
@@ -90,8 +87,7 @@ let collision e1 e2 =
   end
 
 let collision_portal e = 
-  Transition.next;
-  raise Break
+  Transition.next
 
 
 let check_entity e1 e2 =
@@ -104,24 +100,21 @@ let check_entity e1 e2 =
     |_ -> ()
 
 let update _dt el =
-  try 
-    Seq.iteri
-      (fun i (e1) ->
-        Seq.iteri
-          (fun j (e2) ->
-            (* Une double boucle qui évite de comparer deux fois
-              les objets : si on compare A et B, on ne compare pas B et A.
-              Il faudra améliorer cela si on a beaucoup (> 30) objets simultanément.
-            *)
-            let m1 = e1#mass#get in 
-            let m2 = e2#mass#get in 
-            if j > i && (Float.is_finite m1 || Float.is_finite m2) then
-              check_entity e1 e2;
-          )
-          el)
-      el
-  with
-    Break -> ()
+  Seq.iteri
+    (fun i (e1) ->
+      Seq.iteri
+        (fun j (e2) ->
+          (* Une double boucle qui évite de comparer deux fois
+            les objets : si on compare A et B, on ne compare pas B et A.
+            Il faudra améliorer cela si on a beaucoup (> 30) objets simultanément.
+          *)
+          let m1 = e1#mass#get in 
+          let m2 = e2#mass#get in 
+          if j > i && (Float.is_finite m1 || Float.is_finite m2) then
+            check_entity e1 e2;
+        )
+        el)
+    el
 let update _dt el =
   for i = 0 to 3 do
     update _dt el

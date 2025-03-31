@@ -23,5 +23,5 @@ let create x y texture mass =
   
   let box_1 texture =
     boxs := [|
-    create 100 (window_height - ground_thickness - 50 - 5) texture 15.0
+    create 300 (window_height - ground_thickness - 50 - 50) texture 1.0
   |]
