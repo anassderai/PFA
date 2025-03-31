@@ -4,6 +4,8 @@ open Cst
 
 (* On crée un portail *)
 
+let portal_instance = ref None
+
 let create x y w h texture =
   let p = new portal in
   p#pos#set Vector.{ x = float x; y = float y };
@@ -14,6 +16,19 @@ let create x y w h texture =
   Draw_system.register (p :> drawable);
   Collision_system.register (p :> collidable);
   Force_system.register (p :> physics);
+  portal_instance := Some p;
   p
-  
-(*let portal_1 () =  (736; 96; Texture.red; 64;64)(*portail*)*)
+
+let portal () = 
+  match !portal_instance with
+    | Some p -> p
+    | None -> failwith "Portal not initialized"
+
+let unregister () =
+  match !portal_instance with
+    | Some p -> 
+      Draw_system.unregister (p :> drawable);
+      Collision_system.unregister (p :> collidable);
+      Force_system.unregister (p :> physics);
+      portal_instance := None
+    | None -> ()

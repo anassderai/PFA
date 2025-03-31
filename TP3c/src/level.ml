@@ -24,8 +24,12 @@ let level_0 t =
 
 let level_1 () =
   Background.set_img !textures.(1);
+  Box.unregister ();
+  Platform.platform_1 ();
+  Portal.unregister ();
+  
 
-  Platform.platform_1 ()
+  (*let portal_1 () =  (736; 96; Texture.red; 64;64)(*portail*)*)
     
 
 

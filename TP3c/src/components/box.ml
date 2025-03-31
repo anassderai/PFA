@@ -21,7 +21,16 @@ let create x y texture mass =
   b
 
   
-  let box_1 texture =
+let box_1 texture =
     boxs := [|
     create 300 (window_height - ground_thickness - 50 - 50) texture 1.0
   |]
+
+let unregister () =
+  Array.iter (fun b -> 
+    Draw_system.unregister (b :> drawable);
+    Collision_system.unregister (b :> collidable);
+    Move_system.unregister (b :> movable);
+    Force_system.unregister (b :> physics);
+  ) !boxs;
+  boxs := [||]
