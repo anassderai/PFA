@@ -46,6 +46,7 @@ let update _dt el =
               Rect.has_origin s_pos s_rect
               && not (Vector.is_zero v1 && Vector.is_zero v2)
             then begin
+              check_entity e1 e2;
               (* [3] le plus petit des vecteurs a b c d *)
                         
               let a = Vector.{ x = s_pos.x; y = 0.0 } in
