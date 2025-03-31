@@ -35,7 +35,7 @@ let platform_1 () =
       create 740 160 60 8;
     |]
 
-let unregister_1 () = 
+let unregister () = 
   Array.iter (fun p -> 
     Draw_system.unregister (p :> drawable);
     Collision_system.unregister (p :> collidable);
