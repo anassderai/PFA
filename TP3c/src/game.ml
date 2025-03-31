@@ -12,7 +12,7 @@ let init =
   ignore (Wall.create vwall1_x vwall1_y vwall_width vwall_height hwall_color);
   ignore (Wall.create vwall2_x vwall2_y vwall_width vwall_height hwall_color)
 
-
+(*a supprimer
 (* Question 10 *)
 let init_squares =
   let () = Random.self_init () in
@@ -24,7 +24,7 @@ let init_squares =
     let s = Box.create x y 50 50 texture mass in
     s#sum_forces#set Vector.{ x = Random.float 0.25; y = Random.float 0.25 }
   done
-
+*)
 
 (*
  let keys = Hashtbl.create 16

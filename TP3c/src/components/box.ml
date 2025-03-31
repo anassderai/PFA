@@ -1,10 +1,16 @@
 open Component_defs
 open System_defs
+open Cst
 
-let create x y w h texture mass =
+(* On crée une boîte *)
+
+let boxs = ref [||]
+
+
+let create x y texture mass =
   let b = new box in
   b#pos#set Vector.{ x = float x; y = float y };
-  b#rect#set Rect.{width = w; height = h};
+  b#rect#set Rect.{width = 50; height = 50};
   b#texture#set texture;
   b#mass#set mass;
   b#index#set 3;
@@ -13,3 +19,9 @@ let create x y w h texture mass =
   Move_system.register (b :> movable);
   Force_system.register (b :> physics);
   b
+
+  
+  let box_1 texture =
+    boxs := [|
+    create 100 (window_height - ground_thickness - 50 - 5) texture 1.0
+  |]
