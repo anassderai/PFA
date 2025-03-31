@@ -17,21 +17,21 @@ let create x y w h  =
 
 
 let platform_1 () =
-  platform := Array.map (fun x y w h -> create x y w h)
+  platform := 
     [|
-      56;  320; 48; 8;
-      64;  272; 40; 8;
-      48;  372; 52; 8;
-      176; 400; 44; 8;
-      172; 296; 32; 4;
-      216; 344; 56; 8; 
-      232; 448; 40; 8;
-      176; 500; 44; 8;
-      328; 328; 56; 8;
-      480; 308; 56; 8;
-      532; 252; 68; 4;
-      636; 200; 52; 8;
-      740; 160; 60; 8;
+      create 56 320 48 8;
+      create 64 272 40 8;
+      create 48 372 52 8;
+      create 176 400 44 8;
+      create 172 296 32 4;
+      create 216 344 56 8; 
+      create 232 448 40 8;
+      create 176 500 44 8;
+      create 328 328 56 8;
+      create 480 308 56 8;
+      create 532 252 68 4;
+      create 636 200 52 8;
+      create 740 160 60 8;
     |]
 
 let unregister () = 
