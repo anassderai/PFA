@@ -14,9 +14,9 @@ let level_0 t =
 
   ignore (Player.create player_x player_y player_width player_height player_texture player_mass);
 
-  ignore(Portal.create 700 (window_height - ground_thickness - 64) 64 64 !textures.(2))
+  ignore(Portal.create 700 (window_height - ground_thickness - 64) 64 64 !textures.(2));
   
-
+  Box.box_0 !textures.(4)
   (* init walls *)
 
   (* init portal *)

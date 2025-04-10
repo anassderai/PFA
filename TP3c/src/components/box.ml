@@ -20,6 +20,14 @@ let create x y texture mass =
   Force_system.register (b :> physics);
   b
 
+let box_0 texture =
+  boxs := [|
+    create 300 (window_height - ground_thickness - 50) texture 1.0;
+    create 300 (window_height - ground_thickness - 50 - 50) texture 1.0;
+    create 300 (window_height - ground_thickness - 50 - 50 - 50) texture 1.0;
+    create 300 (window_height - ground_thickness - 50 - 50 - 50 - 50) texture 1.0;
+    create 300 (window_height - ground_thickness - 50 - 50 - 50 - 50 - 50) texture 1.0
+  |]
   
 let box_1 texture =
     boxs := [|
@@ -34,3 +42,6 @@ let unregister () =
     Force_system.unregister (b :> physics);
   ) !boxs;
   boxs := [||]
+
+
+(*creer des box pour le level 0 et avancer dessus*)
