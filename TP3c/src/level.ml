@@ -3,20 +3,23 @@ open System_defs
 
 let textures = ref [||]
 
+let textures_player = ref [|[||]|]
+
 let room = ref 0
 
-let level_0 t = 
-  textures := t;
+let level_0 t1 t2 = 
+  textures := t1;
+  textures_player := t2;
 
   Platform.unregister ();
 
   ignore (Background.create !textures.(0) );
 
-  ignore (Player.create player_x player_y player_width player_height player_texture player_mass);
+  ignore (Player.create player_x player_y player_width player_height !textures_player player_mass);
 
-  ignore(Portal.create 700 (window_height - ground_thickness - 64) 64 64 !textures.(2));
+  ignore(Portal.create 700 (window_height - ground_thickness - 64) 64 64 !textures.(3));
   
-  Box.box_0 !textures.(4)
+  Box.box_0 !textures.(5)
   (* init walls *)
 
   (* init portal *)
@@ -26,7 +29,7 @@ let level_1 () =
   Box.unregister ();
   Platform.platform_1 ();
   Portal.unregister ();
-  Player.reset ()
+  Player.change_room !room
 
 
   (*let portal_1 () =  (736; 96; Texture.red; 64;64)(*portail*)*)

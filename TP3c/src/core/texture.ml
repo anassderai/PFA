@@ -22,6 +22,4 @@ let draw ctx dst pos box src =
     | Color c ->
       Gfx.set_color ctx c;
       Gfx.fill_rect ctx dst x y width height
-    | Animation frames ->
-      let frame = frames.(0) in
-      Gfx.blit_scale ctx dst frame x y width height
+    (* | Animation img -> Gfx.blit_scale ctx dst img x y width height *)

@@ -57,6 +57,28 @@ let run () =
   (* Load images : *)
   let win = Game_state.get_window () in
   let ctx = Gfx.get_context win in
+
+  (* Init images perso gojo *)
+
+  let file_perso = Gfx.load_file "resources/files/images_perso.txt" in
+  let@ txt_perso = fun _ -> Gfx.get_resource_opt file_perso in 
+  let images_r_perso = 
+    txt_perso
+    |> String.split_on_char '\n'
+    |> List.filter (fun s -> s <> "") (* retire les lignes vides *)
+    |> List.map (fun s -> Gfx.load_image ctx ("resources/images/player/gojo/" ^ s))
+  in
+  let@ images_perso = fun _ ->
+    if List.for_all Gfx.resource_ready images_r_perso then
+    Some (List.map Gfx.get_resource images_r_perso)
+    else None
+  in 
+  let textures_perso = images_perso
+    |> List.map (fun img -> img)
+    |> Array.of_list
+  in
+  Gfx.debug "textures perso loaded \n%!";
+  let textures_player = [|(Array.sub textures_perso 0 6)|] in 
   let file = Gfx.load_file "resources/files/images.txt" in
   let@ txt = fun _ -> Gfx.get_resource_opt file in 
   let images_r = 
@@ -75,7 +97,7 @@ let run () =
     |> Array.of_list
   in
   Gfx.debug "Textures loaded \n %!";
-  Level.level_0 textures;
+  Level.level_0 textures textures_player;
   Gfx.debug "Level loaded \n %!";
 
   Gfx.main_loop update (fun () -> ())

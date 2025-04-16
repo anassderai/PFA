@@ -5,21 +5,22 @@ open Cst
 
 let player_instance = ref None
 
-(* let textures = ref [||]
-let set_textures t = textures := t
-let get_textures = !textures *)
+let player_textures = ref [|[||]|]
+
+let in_move = ref 0
 
 let create x y w h texture mass = 
   let p = new player in 
   p#pos#set Vector.{x = x; y = y };
   p#rect#set Rect.{width = w; height = h};
-  p#texture#set texture;
   p#mass#set mass;
   p#sum_forces#set Vector.zero;
   p#on_ground#set true;
   p#index#set 1;
   p#move#set 0;
   
+  player_textures := texture;
+  p#texture#set (Texture.Animation texture.(0));
 
   Draw_system.register (p :> drawable);
   Collision_system.register (p :> collidable);
@@ -42,13 +43,17 @@ let set_img img =
   let p = player () in
   p#texture#set img
 
-let reset () = 
+let change_room n = 
   let p = player () in
-  p#pos#set Vector.{x = 700.0; y = player_y};
+  (* p#pos#set Vector.{x = 700.0; y = player_y}; *)
   p#sum_forces#set Vector.zero;
   p#on_ground#set true;
   p#move#set 0;
-  p#velocity#set Vector.zero
+  p#velocity#set Vector.zero;
+  (* p#texture#set !player_textures.(n) *)
+  
+
+
 (* let check_move = 
   let textures = get_textures in
   let p = player () in

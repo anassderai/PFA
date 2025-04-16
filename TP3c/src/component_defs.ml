@@ -82,6 +82,7 @@ class drawable =
     inherit rect
     inherit texture
     inherit index
+    inherit move
   end
 
 class collidable =
@@ -116,7 +117,6 @@ class player =
     inherit! collidable
     inherit! physics
     inherit on_ground
-    inherit move
   end
 
 class wall = 

@@ -1,0 +1,6 @@
+gojo_0.png
+gojo_1.png
+gojo_2.png
+gojo_3.png
+gojo_4.png
+gojo_5.png
