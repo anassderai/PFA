@@ -10,7 +10,7 @@ let dt = ref 0.0
 
 let in_move_player = ref 0
 
-let animation () = (* Ordre des images pour animation player [1,2,3,2,1,4,5,4] *)
+let animation_change () = (* Ordre des images pour animation player [1,2,3,2,1,4,5,4] *)
   match !in_move_player with
   | 0 -> in_move_player := 1; 1
   | 1 -> in_move_player := 2; 2
@@ -20,6 +20,18 @@ let animation () = (* Ordre des images pour animation player [1,2,3,2,1,4,5,4] *
   | 5 -> in_move_player := 6; 4
   | 6 -> in_move_player := 7; 5
   | 7 -> in_move_player := 0; 4
+  | _ -> failwith "Invalid animation state"
+
+let animation () = 
+  match !in_move_player with
+  | 0 -> 1
+  | 1 -> 2
+  | 2 -> 3
+  | 3 -> 2
+  | 4 -> 1
+  | 5 -> 4
+  | 6 -> 5
+  | 7 -> 4
   | _ -> failwith "Invalid animation state"
 
 let update _dt el =
@@ -42,22 +54,48 @@ let update _dt el =
     if e#index#get != 0 then 
       let txt:Texture.t =
         match e#index#get, e#move#get with
-          | 1, 0 -> 
+          | 1, (1,0) -> 
             (match e#texture#get with 
               | Texture.Animation a -> (Image a.(0))
               | _ -> failwith "Invalid texture type")
-          | 1, move when move != 0 ->
-              if !dt <= _dt -. 10.0 then begin
+          | 1, (2,0) -> 
+            (match e#texture#get with 
+              | Texture.Animation a -> (Image a.(7))
+              | _ -> failwith "Invalid texture type")
+          | 1, (3,0) ->
+              if _dt >= 100.0 && !dt <= _dt -. 100.0 then begin
                 dt := _dt;
-                let move = animation () in 
+                let move = animation_change () in 
                 (match e#texture#get with 
                   | Texture.Animation a -> (Image a.(move))
                   | _ -> failwith "Invalid texture type")
               end
               else
+                let move = animation () in
                 (match e#texture#get with 
-                  | Texture.Animation a -> (Image a.(!in_move_player))
+                  | Texture.Animation a -> (Image a.(move))
                   | _ -> failwith "Invalid texture type")
+          | 1, (4,0) ->
+                if _dt >= 100.0 && !dt <= _dt -. 100.0 then begin
+                dt := _dt;
+                let move = animation_change () in 
+                (match e#texture#get with 
+                  | Texture.Animation a -> (Image a.(move+7))
+                  | _ -> failwith "Invalid texture type")
+              end
+              else
+                let move = animation () in
+                (match e#texture#get with 
+                  | Texture.Animation a -> (Image a.(move+7))
+                  | _ -> failwith "Invalid texture type")
+          | 1, (3,1) | 1, (1,1) -> 
+            (match e#texture#get with 
+              | Texture.Animation a -> (Image a.(6))
+              | _ -> failwith "Invalid texture type")
+          | 1, (4,1) | 1, (2,1) -> 
+            (match e#texture#get with 
+              | Texture.Animation a -> (Image a.(13))
+              | _ -> failwith "Invalid texture type")
           | _ -> e#texture#get
       in
       let pos = e#pos#get in

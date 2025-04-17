@@ -4,3 +4,11 @@ gojo_2.png
 gojo_3.png
 gojo_4.png
 gojo_5.png
+gojo_j.png
+gojo_g_0.png
+gojo_g_1.png
+gojo_g_2.png
+gojo_g_3.png
+gojo_g_4.png
+gojo_g_5.png
+gojo_g_j.png

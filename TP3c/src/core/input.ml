@@ -12,12 +12,17 @@ let handle_input () =
   let p = Player.player () in 
   let () =
     match Gfx.poll_event () with
-    | KeyDown "z" -> set_key "z"; p#move#set 1
-    | KeyDown "q" -> set_key "q"; p#move#set 2
-    | KeyDown "d" -> set_key "d"; p#move#set 3
+    | KeyDown "z" -> set_key "z"; p#set_snd 1
+    | KeyDown "q" -> set_key "q"; p#set_fst 4
+    | KeyDown "d" -> set_key "d"; p#set_fst 3
+    
+    | KeyUp "z" -> unset_key "z"; p#set_snd 0
+    | KeyUp "q" -> unset_key "q"; p#set_fst 2
+    | KeyUp "d" -> unset_key "d"; p#set_fst 1
+
 
     | KeyDown s -> set_key s
-    | KeyUp s -> unset_key s; p#move#set 0
+    | KeyUp s -> unset_key s;
     | Quit -> exit 0
     | _ -> ()
   in

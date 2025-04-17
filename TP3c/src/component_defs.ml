@@ -58,14 +58,20 @@ class on_ground =
 
 class move = 
   object 
-    val move = Component.def 0
+    val move = Component.def (0,0)
     method move = move
+    method set_fst n = match move#get with
+      | (x,y) -> move#set (n,y)
+    method set_snd n = match move#get with
+      | (x,y) -> move#set (x,n)
   end
 (* values :
-  * 0 : no move
-  * 1 : jump
-  * 2 : left
-  * 3 : right
+  * (1,0) : no move right
+  * (2,0) : no move left
+  * (3,0) : right
+  * (4,0) : left
+  * (3,1) || (1,1) : jump right
+  * (4,1) || (2,1) : jump left
 *)
 
 (* Some complex components *)

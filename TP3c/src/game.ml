@@ -78,7 +78,7 @@ let run () =
     |> Array.of_list
   in
   Gfx.debug "textures perso loaded \n%!";
-  let textures_player = [|(Array.sub textures_perso 0 6)|] in 
+  let textures_player = [|(Array.sub textures_perso 0 14)|] in 
   let file = Gfx.load_file "resources/files/images.txt" in
   let@ txt = fun _ -> Gfx.get_resource_opt file in 
   let images_r = 

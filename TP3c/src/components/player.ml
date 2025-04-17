@@ -17,7 +17,7 @@ let create x y w h texture mass =
   p#sum_forces#set Vector.zero;
   p#on_ground#set true;
   p#index#set 1;
-  p#move#set 0;
+  p#move#set (1,0);
   
   player_textures := texture;
   p#texture#set (Texture.Animation texture.(0));
@@ -48,8 +48,8 @@ let change_room n =
   (* p#pos#set Vector.{x = 700.0; y = player_y}; *)
   p#sum_forces#set Vector.zero;
   p#on_ground#set true;
-  p#move#set 0;
-  p#velocity#set Vector.zero;
+  (*p#move#set (1,0);*)
+  p#velocity#set Vector.zero
   (* p#texture#set !player_textures.(n) *)
   
 
