@@ -107,6 +107,13 @@ class physics =
     inherit velocity
   end
 
+class physics_moon =
+  object
+    inherit mass
+    inherit sum_forces
+    inherit velocity
+  end
+
 
 (* Entity *)
 
@@ -122,6 +129,7 @@ class player =
     inherit drawable
     inherit! collidable
     inherit! physics
+    inherit! physics_moon
     inherit on_ground
   end
 

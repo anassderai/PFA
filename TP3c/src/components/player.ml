@@ -49,17 +49,20 @@ let change_room n =
   p#sum_forces#set Vector.zero;
   p#on_ground#set true;
   (*p#move#set (1,0);*)
-  p#velocity#set Vector.zero
-  (* p#texture#set !player_textures.(n) *)
+  (* p#texture#set !player_textures.(n); *)
+  p#velocity#set Vector.zero;
+  if n = 2 then begin
+    match !player_instance with
+    | Some p -> 
+        Force_system.unregister (p :> physics);
+        Force_moon_system.register (p :> physics_moon)
+    | None -> failwith "Player not initialized"
+  end;
+  if n = 3 then begin
+    match !player_instance with
+    | Some p -> 
+        Force_moon_system.unregister (p :> physics_moon);
+        Force_system.register (p :> physics)
+    | None -> failwith "Player not initialized"
+  end 
   
-
-
-(* let check_move = 
-  let textures = get_textures in
-  let p = player () in
-  match p#move#get with
-  |0 -> set_img textures.(0)
-  | 1 -> set_img (Array.sub textures 2 5)
-  | 2 -> set_img textures 
-  | 3 -> set_img textures
-  | _ -> () *)

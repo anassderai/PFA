@@ -34,12 +34,12 @@ let update dt =
   Input.handle_input ();
   if Transition.is_ok () then
     begin
-      Gfx.debug "Update %d \n %!" (Transition.get ());
       Transition.reset ();
       Level.next_level ()
     end;
   Collision_system.update dt;
   Force_system.update dt;
+  Force_moon_system.update dt;
   Move_system.update dt;
   Draw_system.update dt;
   None

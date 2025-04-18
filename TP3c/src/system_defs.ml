@@ -11,3 +11,6 @@ let () = System.register (module Force_system)
 
 module Move_system = System.Make (Move)
 let () = System.register (module Move_system)
+
+module Force_moon_system = System.Make (Forces_moon)
+let () = System.register (module Force_moon_system)

@@ -7,7 +7,7 @@ let textures_player = ref [|[||]|]
 
 let room = ref 0
 
-let level_0 t1 t2 = 
+let level_0 t1 t2 = (* Desert *)
   textures := t1;
   textures_player := t2;
 
@@ -24,7 +24,7 @@ let level_0 t1 t2 =
 
   (* init portal *)
 
-let level_1 () =
+let level_1 () = (* Deep Forest *)
   Background.set_img !textures.(1);
   Box.unregister ();
   Portal.unregister ();
@@ -35,7 +35,7 @@ let level_1 () =
 
 
 
-let level_2 () =
+let level_2 () = (* Moon *)
   Background.set_img !textures.(2);
   Platform.unregister ();
   Portal.unregister ();
@@ -43,7 +43,7 @@ let level_2 () =
   ignore (Portal.create 100 400 64 64 !textures.(4));
   Player.change_room !room
 
-let level_3 () = 
+let level_3 () = (* Landscape *)
   Background.set_img !textures.(3);
   Portal.unregister ();
 
