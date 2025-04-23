@@ -1,0 +1,110 @@
+# dune build
+# OCAMLPARAM: unset
+# Shared cache: enabled-except-user-rules
+# Shared cache location: /home/anass/.cache/dune/db
+# Workspace root: /mnt/c/Users/anass/Desktop/PFA/TP3c
+# Auto-detected concurrency: 16
+# Dune context:
+#  { name = "default"
+#  ; kind = "default"
+#  ; profile = Release
+#  ; merlin = true
+#  ; fdo_target_exe = None
+#  ; build_dir = In_build_dir "default"
+#  ; instrument_with = []
+#  }
+$ /home/anass/.opam/5.1.1/bin/ocamlc.opt -config > /tmp/dune_7a86cd_output
+$ /home/anass/.opam/5.1.1/bin/js_of_ocaml --version > /tmp/dune_e6a30c_output
+$ (cd _build/default && /home/anass/.opam/5.1.1/bin/ocamlc.opt -w -40 -w -49 -nopervasives -nostdlib -g -bin-annot -I src/.game.objs/byte -no-alias-deps -o src/.game.objs/byte/game__.cmo -c -impl src/game__.ml-gen)
+$ (cd _build/default && /home/anass/.opam/5.1.1/bin/ocamlc.opt -w -40 -w -49 -nopervasives -nostdlib -g -bin-annot -I lib/ecs/.ecs.objs/byte -no-alias-deps -o lib/ecs/.ecs.objs/byte/ecs.cmo -c -impl lib/ecs/ecs.ml-gen)
+$ (cd _build/default && /home/anass/.opam/5.1.1/bin/ocamldep.opt -modules -impl lib/ecs/system.ml) > _build/default/lib/ecs/.ecs.objs/ecs__System.impl.d
+$ (cd _build/default && /home/anass/.opam/5.1.1/bin/ocamlc.opt -w -40 -g -bin-annot -I lib/ecs/.ecs.objs/byte -no-alias-deps -open Ecs -o lib/ecs/.ecs.objs/byte/ecs__System.cmo -c -impl lib/ecs/system.ml)
+$ (cd _build/default && /home/anass/.opam/5.1.1/bin/ocamlc.opt -w -40 -w -49 -nopervasives -nostdlib -g -bin-annot -I lib/gfx/gfx_jsoo/.gfx_jsoo.objs/byte -no-alias-deps -o lib/gfx/gfx_jsoo/.gfx_jsoo.objs/byte/gfx__gfx_jsoo__.cmo -c -impl lib/gfx/gfx_jsoo/gfx__gfx_jsoo__.ml-gen)
+$ (cd _build/default && /home/anass/.opam/5.1.1/bin/ocamldep.opt -modules -impl src/components/wall.ml) > _build/default/src/.game.objs/game__Wall.impl.d
+$ (cd _build/default && /home/anass/.opam/5.1.1/bin/ocamldep.opt -modules -impl src/game.ml) > _build/default/src/.game.objs/game.impl.d
+$ (cd _build/default && /home/anass/.opam/5.1.1/bin/ocamldep.opt -modules -intf src/game_state.mli) > _build/default/src/.game.objs/game__Game_state.intf.d
+$ (cd _build/default && /home/anass/.opam/5.1.1/bin/ocamldep.opt -modules -intf src/core/global.mli) > _build/default/src/.game.objs/game__Global.intf.d
+$ (cd _build/default && /home/anass/.opam/5.1.1/bin/ocamldep.opt -modules -impl src/components/background.ml) > _build/default/src/.game.objs/game__Background.impl.d
+$ (cd _build/default && /home/anass/.opam/5.1.1/bin/ocamldep.opt -modules -impl src/components/box.ml) > _build/default/src/.game.objs/game__Box.impl.d
+$ (cd _build/default && /home/anass/.opam/5.1.1/bin/ocamldep.opt -modules -impl src/systems/collisions.ml) > _build/default/src/.game.objs/game__Collisions.impl.d
+$ (cd _build/default && /home/anass/.opam/5.1.1/bin/ocamldep.opt -modules -impl src/component_defs.ml) > _build/default/src/.game.objs/game__Component_defs.impl.d
+$ (cd _build/default && /home/anass/.opam/5.1.1/bin/ocamldep.opt -modules -impl src/components/corde.ml) > _build/default/src/.game.objs/game__Corde.impl.d
+$ (cd _build/default && /home/anass/.opam/5.1.1/bin/ocamldep.opt -modules -impl src/core/cst.ml) > _build/default/src/.game.objs/game__Cst.impl.d
+$ (cd _build/default && /home/anass/.opam/5.1.1/bin/ocamldep.opt -modules -impl src/systems/draw.ml) > _build/default/src/.game.objs/game__Draw.impl.d
+$ (cd _build/default && /home/anass/.opam/5.1.1/bin/ocamldep.opt -modules -impl src/systems/forces.ml) > _build/default/src/.game.objs/game__Forces.impl.d
+$ (cd _build/default && /home/anass/.opam/5.1.1/bin/ocamldep.opt -modules -impl src/game_state.ml) > _build/default/src/.game.objs/game__Game_state.impl.d
+$ (cd _build/default && /home/anass/.opam/5.1.1/bin/ocamldep.opt -modules -impl src/core/global.ml) > _build/default/src/.game.objs/game__Global.impl.d
+$ (cd _build/default && /home/anass/.opam/5.1.1/bin/ocamldep.opt -modules -impl src/core/input.ml) > _build/default/src/.game.objs/game__Input.impl.d
+$ (cd _build/default && /home/anass/.opam/5.1.1/bin/ocamldep.opt -modules -impl src/level.ml) > _build/default/src/.game.objs/game__Level.impl.d
+$ (cd _build/default && /home/anass/.opam/5.1.1/bin/ocamldep.opt -modules -impl src/systems/move.ml) > _build/default/src/.game.objs/game__Move.impl.d
+$ (cd _build/default && /home/anass/.opam/5.1.1/bin/ocamldep.opt -modules -impl src/components/platform.ml) > _build/default/src/.game.objs/game__Platform.impl.d
+$ (cd _build/default && /home/anass/.opam/5.1.1/bin/ocamldep.opt -modules -impl src/components/player.ml) > _build/default/src/.game.objs/game__Player.impl.d
+$ (cd _build/default && /home/anass/.opam/5.1.1/bin/ocamldep.opt -modules -impl src/components/portal.ml) > _build/default/src/.game.objs/game__Portal.impl.d
+$ (cd _build/default && /home/anass/.opam/5.1.1/bin/ocamldep.opt -modules -impl src/core/rect.ml) > _build/default/src/.game.objs/game__Rect.impl.d
+$ (cd _build/default && /home/anass/.opam/5.1.1/bin/ocamldep.opt -modules -impl src/system_defs.ml) > _build/default/src/.game.objs/game__System_defs.impl.d
+$ (cd _build/default && /home/anass/.opam/5.1.1/bin/ocamldep.opt -modules -impl src/core/texture.ml) > _build/default/src/.game.objs/game__Texture.impl.d
+$ (cd _build/default && /home/anass/.opam/5.1.1/bin/ocamldep.opt -modules -impl src/transition.ml) > _build/default/src/.game.objs/game__Transition.impl.d
+$ (cd _build/default && /home/anass/.opam/5.1.1/bin/ocamldep.opt -modules -impl src/core/vector.ml) > _build/default/src/.game.objs/game__Vector.impl.d
+$ (cd _build/default && /home/anass/.opam/5.1.1/bin/ocamldep.opt -modules -intf lib/ecs/component.mli) > _build/default/lib/ecs/.ecs.objs/ecs__Component.intf.d
+$ (cd _build/default && /home/anass/.opam/5.1.1/bin/ocamldep.opt -modules -intf lib/ecs/entity.mli) > _build/default/lib/ecs/.ecs.objs/ecs__Entity.intf.d
+$ (cd _build/default && /home/anass/.opam/5.1.1/bin/ocamldep.opt -modules -impl lib/ecs/component.ml) > _build/default/lib/ecs/.ecs.objs/ecs__Component.impl.d
+$ (cd _build/default && /home/anass/.opam/5.1.1/bin/ocamldep.opt -modules -impl lib/ecs/entity.ml) > _build/default/lib/ecs/.ecs.objs/ecs__Entity.impl.d
+$ (cd _build/default && /home/anass/.opam/5.1.1/bin/ocamlc.opt -w -40 -g -bin-annot -I lib/ecs/.ecs.objs/byte -no-alias-deps -open Ecs -o lib/ecs/.ecs.objs/byte/ecs__Component.cmi -c -intf lib/ecs/component.mli)
+$ (cd _build/default && /home/anass/.opam/5.1.1/bin/ocamlc.opt -w -40 -g -bin-annot -I lib/ecs/.ecs.objs/byte -no-alias-deps -open Ecs -o lib/ecs/.ecs.objs/byte/ecs__Entity.cmi -c -intf lib/ecs/entity.mli)
+$ (cd _build/default && /home/anass/.opam/5.1.1/bin/ocamlc.opt -w -40 -g -bin-annot -I lib/ecs/.ecs.objs/byte -intf-suffix .ml -no-alias-deps -open Ecs -o lib/ecs/.ecs.objs/byte/ecs__Component.cmo -c -impl lib/ecs/component.ml)
+$ (cd _build/default && /home/anass/.opam/5.1.1/bin/ocamlc.opt -w -40 -g -bin-annot -I lib/ecs/.ecs.objs/byte -intf-suffix .ml -no-alias-deps -open Ecs -o lib/ecs/.ecs.objs/byte/ecs__Entity.cmo -c -impl lib/ecs/entity.ml)
+$ (cd _build/default && /home/anass/.opam/5.1.1/bin/ocamlc.opt -w -40 -g -a -o lib/ecs/ecs.cma lib/ecs/.ecs.objs/byte/ecs.cmo lib/ecs/.ecs.objs/byte/ecs__System.cmo lib/ecs/.ecs.objs/byte/ecs__Entity.cmo lib/ecs/.ecs.objs/byte/ecs__Component.cmo)
+$ (cd _build/default && /home/anass/.opam/5.1.1/bin/ocamlc.opt -g -w -24 -I .ppx/7b799aed44581cc79b02033532c5f775 -I /home/anass/.opam/5.1.1/lib/js_of_ocaml-ppx -I /home/anass/.opam/5.1.1/lib/js_of_ocaml-ppx/as-lib -I /home/anass/.opam/5.1.1/lib/ocaml-compiler-libs/common -I /home/anass/.opam/5.1.1/lib/ocaml-compiler-libs/shadow -I /home/anass/.opam/5.1.1/lib/ocaml/compiler-libs -I /home/anass/.opam/5.1.1/lib/ppx_derivers -I /home/anass/.opam/5.1.1/lib/ppxlib -I /home/anass/.opam/5.1.1/lib/ppxlib/ast -I /home/anass/.opam/5.1.1/lib/ppxlib/astlib -I /home/anass/.opam/5.1.1/lib/ppxlib/print_diff -I /home/anass/.opam/5.1.1/lib/ppxlib/stdppx -I /home/anass/.opam/5.1.1/lib/ppxlib/traverse_builtins -I /home/anass/.opam/5.1.1/lib/sexplib0 -I /home/anass/.opam/5.1.1/lib/stdlib-shims -no-alias-deps -o .ppx/7b799aed44581cc79b02033532c5f775/dune__exe___ppx.cmo -c -impl .ppx/7b799aed44581cc79b02033532c5f775/_ppx.ml-gen)
+$ (cd _build/default && /home/anass/.opam/5.1.1/bin/ocamldep.opt -modules -impl lib/gfx/gfx_base.ml) > _build/default/lib/gfx/.gfx.objs/gfx__Gfx_base.impl.d
+$ (cd _build/default && /home/anass/.opam/5.1.1/bin/ocamldep.opt -modules -intf lib/gfx/gfx.mli) > _build/default/lib/gfx/.gfx.objs/gfx.intf.d
+$ (cd _build/default && /home/anass/.opam/5.1.1/bin/ocamlc.opt -w -40 -w -49 -nopervasives -nostdlib -g -bin-annot -I lib/gfx/.gfx.objs/byte -no-alias-deps -o lib/gfx/.gfx.objs/byte/gfx__.cmo -c -impl lib/gfx/gfx__.ml-gen)
+$ (cd _build/default && /home/anass/.opam/5.1.1/bin/ocamlopt.opt -g -w -24 -I .ppx/7b799aed44581cc79b02033532c5f775 -I /home/anass/.opam/5.1.1/lib/js_of_ocaml-ppx -I /home/anass/.opam/5.1.1/lib/js_of_ocaml-ppx/as-lib -I /home/anass/.opam/5.1.1/lib/ocaml-compiler-libs/common -I /home/anass/.opam/5.1.1/lib/ocaml-compiler-libs/shadow -I /home/anass/.opam/5.1.1/lib/ocaml/compiler-libs -I /home/anass/.opam/5.1.1/lib/ppx_derivers -I /home/anass/.opam/5.1.1/lib/ppxlib -I /home/anass/.opam/5.1.1/lib/ppxlib/ast -I /home/anass/.opam/5.1.1/lib/ppxlib/astlib -I /home/anass/.opam/5.1.1/lib/ppxlib/print_diff -I /home/anass/.opam/5.1.1/lib/ppxlib/stdppx -I /home/anass/.opam/5.1.1/lib/ppxlib/traverse_builtins -I /home/anass/.opam/5.1.1/lib/sexplib0 -I /home/anass/.opam/5.1.1/lib/stdlib-shims -intf-suffix .ml-gen -no-alias-deps -o .ppx/7b799aed44581cc79b02033532c5f775/dune__exe___ppx.cmx -c -impl .ppx/7b799aed44581cc79b02033532c5f775/_ppx.ml-gen)
+$ (cd _build/default && /home/anass/.opam/5.1.1/bin/ocamlc.opt -w -40 -g -bin-annot -I lib/gfx/.gfx.objs/byte -no-alias-deps -opaque -open Gfx__ -o lib/gfx/.gfx.objs/byte/gfx.cmi -c -intf lib/gfx/gfx.mli)
+$ (cd _build/default && /home/anass/.opam/5.1.1/bin/ocamlc.opt -w -40 -g -bin-annot -I lib/gfx/.gfx.objs/byte -no-alias-deps -open Gfx__ -o lib/gfx/.gfx.objs/byte/gfx__Gfx_base.cmo -c -impl lib/gfx/gfx_base.ml)
+$ (cd _build/default && /home/anass/.opam/5.1.1/bin/ocamlc.opt -w -40 -g -bin-annot -I src/.game.objs/byte -I lib/ecs/.ecs.objs/byte -I lib/gfx/.gfx.objs/byte -no-alias-deps -open Game__ -o src/.game.objs/byte/game__Game_state.cmi -c -intf src/game_state.mli)
+$ (cd _build/default && /home/anass/.opam/5.1.1/bin/ocamlc.opt -w -40 -g -bin-annot -I src/.game.objs/byte -I lib/ecs/.ecs.objs/byte -I lib/gfx/.gfx.objs/byte -no-alias-deps -open Game__ -o src/.game.objs/byte/game__Global.cmi -c -intf src/core/global.mli)
+$ (cd _build/default && /home/anass/.opam/5.1.1/bin/ocamlc.opt -w -40 -g -bin-annot -I src/.game.objs/byte -I lib/ecs/.ecs.objs/byte -I lib/gfx/.gfx.objs/byte -no-alias-deps -open Game__ -o src/.game.objs/byte/game__Transition.cmo -c -impl src/transition.ml)
+$ (cd _build/default && /home/anass/.opam/5.1.1/bin/ocamlc.opt -w -40 -g -bin-annot -I src/.game.objs/byte -I lib/ecs/.ecs.objs/byte -I lib/gfx/.gfx.objs/byte -no-alias-deps -open Game__ -o src/.game.objs/byte/game__Vector.cmo -c -impl src/core/vector.ml)
+$ (cd _build/default && /home/anass/.opam/5.1.1/bin/ocamlc.opt -w -40 -g -bin-annot -I src/.game.objs/byte -I lib/ecs/.ecs.objs/byte -I lib/gfx/.gfx.objs/byte -intf-suffix .ml -no-alias-deps -open Game__ -o src/.game.objs/byte/game__Game_state.cmo -c -impl src/game_state.ml)
+$ (cd _build/default && /home/anass/.opam/5.1.1/bin/ocamlc.opt -w -40 -g -bin-annot -I src/.game.objs/byte -I lib/ecs/.ecs.objs/byte -I lib/gfx/.gfx.objs/byte -intf-suffix .ml -no-alias-deps -open Game__ -o src/.game.objs/byte/game__Global.cmo -c -impl src/core/global.ml)
+$ (cd _build/default && /home/anass/.opam/5.1.1/bin/ocamlc.opt -w -40 -g -bin-annot -I src/.game.objs/byte -I lib/ecs/.ecs.objs/byte -I lib/gfx/.gfx.objs/byte -no-alias-deps -open Game__ -o src/.game.objs/byte/game__Rect.cmo -c -impl src/core/rect.ml)
+$ (cd _build/default && /home/anass/.opam/5.1.1/bin/ocamlc.opt -w -40 -g -bin-annot -I src/.game.objs/byte -I lib/ecs/.ecs.objs/byte -I lib/gfx/.gfx.objs/byte -no-alias-deps -open Game__ -o src/.game.objs/byte/game__Texture.cmo -c -impl src/core/texture.ml)
+> File "src/core/texture.ml", lines 23-27, characters 2-44:
+> 23 | ..match src with
+> 24 |     | Image img -> Gfx.blit_scale ctx dst img x y width height
+> 25 |     | Color c ->
+> 26 |       Gfx.set_color ctx c;
+> 27 |       Gfx.fill_rect ctx dst x y width height
+> Warning 8 [partial-match]: this pattern-matching is not exhaustive.
+> Here is an example of a case that is not matched:
+> Animation _
+$ (cd _build/default && /home/anass/.opam/5.1.1/bin/ocamlc.opt -w -40 -g -bin-annot -I src/.game.objs/byte -I lib/ecs/.ecs.objs/byte -I lib/gfx/.gfx.objs/byte -no-alias-deps -open Game__ -o src/.game.objs/byte/game__Cst.cmo -c -impl src/core/cst.ml)
+$ (cd _build/default && /home/anass/.opam/5.1.1/bin/ocamlc.opt -w -40 -g -bin-annot -I src/.game.objs/byte -I lib/ecs/.ecs.objs/byte -I lib/gfx/.gfx.objs/byte -no-alias-deps -open Game__ -o src/.game.objs/byte/game__Component_defs.cmo -c -impl src/component_defs.ml)
+$ (cd _build/default && /home/anass/.opam/5.1.1/bin/ocamlc.opt -w -40 -g -bin-annot -I src/.game.objs/byte -I lib/ecs/.ecs.objs/byte -I lib/gfx/.gfx.objs/byte -no-alias-deps -open Game__ -o src/.game.objs/byte/game__Collisions.cmo -c -impl src/systems/collisions.ml)
+$ (cd _build/default && /home/anass/.opam/5.1.1/bin/ocamlc.opt -w -40 -g -bin-annot -I src/.game.objs/byte -I lib/ecs/.ecs.objs/byte -I lib/gfx/.gfx.objs/byte -no-alias-deps -open Game__ -o src/.game.objs/byte/game__Forces.cmo -c -impl src/systems/forces.ml)
+$ (cd _build/default && /home/anass/.opam/5.1.1/bin/ocamlc.opt -w -40 -g -bin-annot -I src/.game.objs/byte -I lib/ecs/.ecs.objs/byte -I lib/gfx/.gfx.objs/byte -no-alias-deps -open Game__ -o src/.game.objs/byte/game__Draw.cmo -c -impl src/systems/draw.ml)
+$ (cd _build/default && /home/anass/.opam/5.1.1/bin/ocamlc.opt -w -40 -g -bin-annot -I src/.game.objs/byte -I lib/ecs/.ecs.objs/byte -I lib/gfx/.gfx.objs/byte -no-alias-deps -open Game__ -o src/.game.objs/byte/game__Move.cmo -c -impl src/systems/move.ml)
+$ (cd _build/default && /home/anass/.opam/5.1.1/bin/ocamlc.opt -w -40 -g -bin-annot -I src/.game.objs/byte -I lib/ecs/.ecs.objs/byte -I lib/gfx/.gfx.objs/byte -no-alias-deps -open Game__ -o src/.game.objs/byte/game__System_defs.cmo -c -impl src/system_defs.ml)
+$ (cd _build/default && /home/anass/.opam/5.1.1/bin/ocamlc.opt -w -40 -g -bin-annot -I src/.game.objs/byte -I lib/ecs/.ecs.objs/byte -I lib/gfx/.gfx.objs/byte -no-alias-deps -open Game__ -o src/.game.objs/byte/game__Background.cmo -c -impl src/components/background.ml)
+$ (cd _build/default && /home/anass/.opam/5.1.1/bin/ocamlc.opt -w -40 -g -bin-annot -I src/.game.objs/byte -I lib/ecs/.ecs.objs/byte -I lib/gfx/.gfx.objs/byte -no-alias-deps -open Game__ -o src/.game.objs/byte/game__Corde.cmo -c -impl src/components/corde.ml)
+$ (cd _build/default && /home/anass/.opam/5.1.1/bin/ocamlc.opt -w -40 -g -bin-annot -I src/.game.objs/byte -I lib/ecs/.ecs.objs/byte -I lib/gfx/.gfx.objs/byte -no-alias-deps -open Game__ -o src/.game.objs/byte/game__Box.cmo -c -impl src/components/box.ml)
+$ (cd _build/default && /home/anass/.opam/5.1.1/bin/ocamlc.opt -w -40 -g -bin-annot -I src/.game.objs/byte -I lib/ecs/.ecs.objs/byte -I lib/gfx/.gfx.objs/byte -no-alias-deps -open Game__ -o src/.game.objs/byte/game__Player.cmo -c -impl src/components/player.ml)
+$ (cd _build/default && /home/anass/.opam/5.1.1/bin/ocamlc.opt -w -40 -g -bin-annot -I src/.game.objs/byte -I lib/ecs/.ecs.objs/byte -I lib/gfx/.gfx.objs/byte -no-alias-deps -open Game__ -o src/.game.objs/byte/game__Platform.cmo -c -impl src/components/platform.ml)
+$ (cd _build/default && /home/anass/.opam/5.1.1/bin/ocamlc.opt -w -40 -g -bin-annot -I src/.game.objs/byte -I lib/ecs/.ecs.objs/byte -I lib/gfx/.gfx.objs/byte -no-alias-deps -open Game__ -o src/.game.objs/byte/game__Wall.cmo -c -impl src/components/wall.ml)
+$ (cd _build/default && /home/anass/.opam/5.1.1/bin/ocamlc.opt -w -40 -g -bin-annot -I src/.game.objs/byte -I lib/ecs/.ecs.objs/byte -I lib/gfx/.gfx.objs/byte -no-alias-deps -open Game__ -o src/.game.objs/byte/game__Portal.cmo -c -impl src/components/portal.ml)
+$ (cd _build/default && /home/anass/.opam/5.1.1/bin/ocamlc.opt -w -40 -g -bin-annot -I src/.game.objs/byte -I lib/ecs/.ecs.objs/byte -I lib/gfx/.gfx.objs/byte -no-alias-deps -open Game__ -o src/.game.objs/byte/game__Input.cmo -c -impl src/core/input.ml)
+$ (cd _build/default && /home/anass/.opam/5.1.1/bin/ocamlc.opt -w -40 -g -bin-annot -I src/.game.objs/byte -I lib/ecs/.ecs.objs/byte -I lib/gfx/.gfx.objs/byte -no-alias-deps -open Game__ -o src/.game.objs/byte/game__Level.cmo -c -impl src/level.ml)
+$ (cd _build/default && /home/anass/.opam/5.1.1/bin/ocamlc.opt -w -40 -g -bin-annot -I src/.game.objs/byte -I lib/ecs/.ecs.objs/byte -I lib/gfx/.gfx.objs/byte -no-alias-deps -open Game__ -o src/.game.objs/byte/game.cmo -c -impl src/game.ml)
+$ (cd _build/default && /home/anass/.opam/5.1.1/bin/ocamlc.opt -w -40 -g -a -o src/game.cma src/.game.objs/byte/game__.cmo src/.game.objs/byte/game__Vector.cmo src/.game.objs/byte/game__Rect.cmo src/.game.objs/byte/game__Texture.cmo src/.game.objs/byte/game__Component_defs.cmo src/.game.objs/byte/game__Transition.cmo src/.game.objs/byte/game__Collisions.cmo src/.game.objs/byte/game__Game_state.cmo src/.game.objs/byte/game__Draw.cmo src/.game.objs/byte/game__Forces.cmo src/.game.objs/byte/game__Move.cmo src/.game.objs/byte/game__System_defs.cmo src/.game.objs/byte/game__Wall.cmo src/.game.objs/byte/game__Cst.cmo src/.game.objs/byte/game__Portal.cmo src/.game.objs/byte/game__Player.cmo src/.game.objs/byte/game__Platform.cmo src/.game.objs/byte/game__Background.cmo src/.game.objs/byte/game__Box.cmo src/.game.objs/byte/game__Level.cmo src/.game.objs/byte/game__Input.cmo src/.game.objs/byte/game__Global.cmo src/.game.objs/byte/game.cmo src/.game.objs/byte/game__Corde.cmo)
+$ (cd _build/default && /home/anass/.opam/5.1.1/bin/ocamlopt.opt -g -w -24 -o .ppx/7b799aed44581cc79b02033532c5f775/ppx.exe /home/anass/.opam/5.1.1/lib/ocaml/compiler-libs/ocamlcommon.cmxa /home/anass/.opam/5.1.1/lib/ocaml-compiler-libs/common/ocaml_common.cmxa /home/anass/.opam/5.1.1/lib/ppxlib/astlib/astlib.cmxa /home/anass/.opam/5.1.1/lib/stdlib-shims/stdlib_shims.cmxa /home/anass/.opam/5.1.1/lib/ppxlib/ast/ppxlib_ast.cmxa /home/anass/.opam/5.1.1/lib/ocaml-compiler-libs/shadow/ocaml_shadow.cmxa /home/anass/.opam/5.1.1/lib/ppxlib/print_diff/ppxlib_print_diff.cmxa /home/anass/.opam/5.1.1/lib/ppx_derivers/ppx_derivers.cmxa /home/anass/.opam/5.1.1/lib/ppxlib/traverse_builtins/ppxlib_traverse_builtins.cmxa /home/anass/.opam/5.1.1/lib/sexplib0/sexplib0.cmxa /home/anass/.opam/5.1.1/lib/ppxlib/stdppx/stdppx.cmxa /home/anass/.opam/5.1.1/lib/ppxlib/ppxlib.cmxa /home/anass/.opam/5.1.1/lib/js_of_ocaml-ppx/as-lib/ppx_js.cmxa /home/anass/.opam/5.1.1/lib/js_of_ocaml-ppx/ppx_js_rewriter.cmxa .ppx/7b799aed44581cc79b02033532c5f775/dune__exe___ppx.cmx)
+$ (cd _build/default && .ppx/7b799aed44581cc79b02033532c5f775/ppx.exe -o prog/game_js.pp.ml --impl prog/game_js.ml -corrected-suffix .ppx-corrected -diff-cmd - -dump-ast)
+$ (cd _build/default && .ppx/7b799aed44581cc79b02033532c5f775/ppx.exe --cookie 'library-name="gfx_jsoo"' -o lib/gfx/gfx_jsoo/gfx.pp.ml --impl lib/gfx/gfx_jsoo/gfx.ml -corrected-suffix .ppx-corrected -diff-cmd - -dump-ast)
+$ (cd _build/default && /home/anass/.opam/5.1.1/bin/ocamldep.opt -modules -impl lib/gfx/gfx_jsoo/gfx.pp.ml) > _build/default/lib/gfx/gfx_jsoo/.gfx_jsoo.objs/gfx.impl.d
+$ (cd _build/default && /home/anass/.opam/5.1.1/bin/ocamlc.opt -w -40 -g -bin-annot -I prog/.game_js.eobjs/byte -I /home/anass/.opam/5.1.1/lib/js_of_ocaml -I /home/anass/.opam/5.1.1/lib/js_of_ocaml-compiler/runtime -I lib/ecs/.ecs.objs/byte -I lib/gfx/gfx_jsoo/.gfx_jsoo.objs/byte -I src/.game.objs/byte -no-alias-deps -o prog/.game_js.eobjs/byte/dune__exe__Game_js.cmo -c -impl prog/game_js.pp.ml)
+$ (cd _build/default && /home/anass/.opam/5.1.1/bin/ocamlc.opt -w -40 -g -bin-annot -I lib/gfx/gfx_jsoo/.gfx_jsoo.objs/byte -I /home/anass/.opam/5.1.1/lib/js_of_ocaml -I /home/anass/.opam/5.1.1/lib/js_of_ocaml-compiler/runtime -I lib/gfx/.gfx.objs/byte -intf-suffix .ml -no-alias-deps -open Gfx__gfx_jsoo__ -o lib/gfx/gfx_jsoo/.gfx_jsoo.objs/byte/gfx.cmo -c -impl lib/gfx/gfx_jsoo/gfx.pp.ml)
+$ (cd _build/default && /home/anass/.opam/5.1.1/bin/ocamlc.opt -w -40 -g -a -o lib/gfx/gfx_jsoo/gfx_jsoo.cma lib/gfx/gfx_jsoo/.gfx_jsoo.objs/byte/gfx__gfx_jsoo__.cmo lib/gfx/gfx_jsoo/.gfx_jsoo.objs/byte/gfx__Gfx_base.cmo lib/gfx/gfx_jsoo/.gfx_jsoo.objs/byte/gfx.cmo lib/gfx/gfx_jsoo/.gfx_jsoo.objs/byte/gfx__.cmo)
+$ (cd _build/default && /home/anass/.opam/5.1.1/bin/ocamlc.opt -w -40 -g -o prog/game_js.bc-for-jsoo -no-check-prims -noautolink lib/ecs/ecs.cma /home/anass/.opam/5.1.1/lib/js_of_ocaml-compiler/runtime/jsoo_runtime.cma /home/anass/.opam/5.1.1/lib/js_of_ocaml/js_of_ocaml.cma lib/gfx/gfx_jsoo/gfx_jsoo.cma src/game.cma prog/.game_js.eobjs/byte/dune__exe__Game_js.cmo)
+# Promoting "_build/default/prog/game_js.bc-for-jsoo" to
+# "prog/game_js.bc-for-jsoo"
+$ (cd _build/default/prog && /home/anass/.opam/5.1.1/bin/js_of_ocaml --no-source-map -I . --file=../resources/files -o game_js.bc.js game_js.bc-for-jsoo)
+# Promoting "_build/default/prog/game_js.bc.js" to "prog/game_js.bc.js"
