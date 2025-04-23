@@ -6,6 +6,39 @@ let init _ = ()
 
 let white = Gfx.color 255 255 255 255
 
+let dt = ref 0.0
+
+let dt_no_move = ref 0.0
+
+let platform_shinning = [|Texture.transparent; Texture.white_transparent|]
+
+let platform_shine = ref 0
+
+let in_move_player = ref 0
+
+let animation_change () = (* Ordre des images pour animation player [1,2,3,2,1,4,5,4] *)
+  match !in_move_player with
+  | 0 -> in_move_player := 1; 1
+  | 1 -> in_move_player := 2; 2
+  | 2 -> in_move_player := 3; 3
+  | 3 -> in_move_player := 4; 2
+  | 4 -> in_move_player := 5; 1
+  | 5 -> in_move_player := 6; 4
+  | 6 -> in_move_player := 7; 5
+  | 7 -> in_move_player := 0; 4
+  | _ -> failwith "Invalid animation state"
+
+let animation () = 
+  match !in_move_player with
+  | 0 -> 1
+  | 1 -> 2
+  | 2 -> 3
+  | 3 -> 2
+  | 4 -> 1
+  | 5 -> 4
+  | 6 -> 5
+  | 7 -> 4
+  | _ -> failwith "Invalid animation state"
 
 let update _dt el =
   let win = Game_state.get_window () in
@@ -25,9 +58,68 @@ let update _dt el =
       ) el;
   Seq.iter (fun (e:t) ->
     if e#index#get != 0 then 
+      let txt:Texture.t =
+        match e#index#get, e#move#get with
+          | 1, (1,0) -> 
+            (match e#texture#get with 
+              | Texture.Animation a -> (Image a.(0))
+              | _ -> failwith "Invalid texture type")
+          | 1, (2,0) -> 
+            (match e#texture#get with 
+              | Texture.Animation a -> (Image a.(7))
+              | _ -> failwith "Invalid texture type")
+          | 1, (3,0) ->
+            dt_no_move := _dt;
+            if _dt >= 100.0 && !dt <= _dt -. 100.0 then begin
+              dt := _dt;
+              let move = animation_change () in 
+              (match e#texture#get with 
+                | Texture.Animation a -> (Image a.(move))
+                | _ -> failwith "Invalid texture type")
+            end
+            else
+              let move = animation () in
+              (match e#texture#get with 
+                | Texture.Animation a -> (Image a.(move))
+                | _ -> failwith "Invalid texture type")
+          | 1, (4,0) ->
+            dt_no_move := _dt;
+              if _dt >= 100.0 && !dt <= _dt -. 100.0 then begin
+              dt := _dt;
+              let move = animation_change () in 
+              (match e#texture#get with 
+                | Texture.Animation a -> (Image a.(move+7))
+                | _ -> failwith "Invalid texture type")
+            end
+            else
+              let move = animation () in
+              (match e#texture#get with 
+                | Texture.Animation a -> (Image a.(move+7))
+                | _ -> failwith "Invalid texture type")
+          | 1, (3,1) | 1, (1,1) -> 
+            dt_no_move := _dt;
+            (match e#texture#get with 
+              | Texture.Animation a -> (Image a.(6))
+              | _ -> failwith "Invalid texture type")
+          | 1, (4,1) | 1, (2,1) ->
+            dt_no_move := _dt; 
+            (match e#texture#get with 
+              | Texture.Animation a -> (Image a.(13))
+              | _ -> failwith "Invalid texture type")
+          | 7, _ -> 
+            if _dt >= 1000.0 && !dt_no_move <= _dt -. 1000.0 then begin
+              if _dt >= 1000.0 && !dt <= _dt -. 1000.0 then begin
+                dt := _dt;
+                platform_shine := !platform_shine + 1
+              end;
+              platform_shinning.(!platform_shine mod 2)
+            end 
+            else 
+              e#texture#get
+          | _ -> e#texture#get
+      in
       let pos = e#pos#get in
       let rect = e#rect#get in
-      let txt = e#texture#get in
       Texture.draw ctx win_surf pos rect txt
     ) el;
 

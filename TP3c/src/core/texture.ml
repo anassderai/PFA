@@ -12,9 +12,7 @@ let orange = Color (Gfx.color 255 128 0 128)
 
 let yellow = Color (Gfx.color 255 255 0 255)
 let transparent = Color (Gfx.color 0 0 0 0)
-let transparent_white = Color (Gfx.color 255 255 255 125)
-
-
+let white_transparent = Color (Gfx.color 255 255 255 128)
 
 let draw ctx dst pos box src =
   let x = int_of_float pos.Vector.x in
@@ -25,3 +23,4 @@ let draw ctx dst pos box src =
     | Color c ->
       Gfx.set_color ctx c;
       Gfx.fill_rect ctx dst x y width height
+    | Animation img -> Gfx.blit_scale ctx dst img.(0) x y width height
