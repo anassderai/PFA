@@ -3,53 +3,41 @@ open System_defs
 
 let textures = ref [||]
 
-let textures_player = ref [|[||]|]
-
 let room = ref 0
 
-let level_0 t1 t2 = (* Desert *)
-  textures := t1;
-  textures_player := t2;
+let level_0 t = 
+  textures := t;
 
   Platform.unregister ();
 
   ignore (Background.create !textures.(6) );
 
-  ignore (Player.create player_x player_y player_width player_height !textures_player player_mass);
+  ignore (Player.create player_x player_y player_width player_height player_texture player_mass);
 
-  ignore(Portal.create 700 (window_height - ground_thickness - 64) 64 64 !textures.(4));
+  (*ignore(Portal.create 700 (window_height - ground_thickness - 64) 64 64 !textures.(2));*)
   
-  Box.box_0 !textures.(6)
+  Platform.platform_2 ()
+
+  (*Box.box_0 !textures.(4)*)
   (* init walls *)
 
   (* init portal *)
 
-let level_1 () = (* Deep Forest *)
+let level_1 () =
   Background.set_img !textures.(1);
   Box.unregister ();
-  Portal.unregister ();
-
   Platform.platform_1 ();
-  ignore (Portal.create 736 96 64 64 !textures.(4));
-  Player.change_room !room
-
-
-
-let level_2 () = (* Moon *)
-  Background.set_img !textures.(2);
-  Platform.unregister ();
   Portal.unregister ();
+  Player.reset ()
 
-  ignore (Portal.create 100 400 64 64 !textures.(4));
-  Player.change_room !room
 
-let level_3 () = (* Landscape *)
-  Background.set_img !textures.(3);
-  Portal.unregister ();
+  (*let portal_1 () =  (736; 96; Texture.red; 64;64)(*portail*)*)
+    
 
-  Platform.platform_2 ();
-  ignore (Portal.create 36 10 64 64 !textures.(4));
-  Player.change_room !room
+
+let level_2 () = ()
+
+let level_3 () = () 
 
 let level_4 () = ()  
 

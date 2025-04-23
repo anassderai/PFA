@@ -58,20 +58,14 @@ class on_ground =
 
 class move = 
   object 
-    val move = Component.def (0,0)
+    val move = Component.def 0
     method move = move
-    method set_fst n = match move#get with
-      | (x,y) -> move#set (n,y)
-    method set_snd n = match move#get with
-      | (x,y) -> move#set (x,n)
   end
 (* values :
-  * (1,0) : no move right
-  * (2,0) : no move left
-  * (3,0) : right
-  * (4,0) : left
-  * (3,1) || (1,1) : jump right
-  * (4,1) || (2,1) : jump left
+  * 0 : no move
+  * 1 : jump
+  * 2 : left
+  * 3 : right
 *)
 
 (* Some complex components *)
@@ -88,7 +82,6 @@ class drawable =
     inherit rect
     inherit texture
     inherit index
-    inherit move
   end
 
 class collidable =
@@ -101,13 +94,6 @@ class collidable =
   end
 
 class physics =
-  object
-    inherit mass
-    inherit sum_forces
-    inherit velocity
-  end
-
-class physics_moon =
   object
     inherit mass
     inherit sum_forces
@@ -129,8 +115,8 @@ class player =
     inherit drawable
     inherit! collidable
     inherit! physics
-    inherit! physics_moon
     inherit on_ground
+    inherit move
   end
 
 class wall = 
