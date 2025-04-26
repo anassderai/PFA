@@ -12,6 +12,6 @@ Ajouter du squelette pris lors du TP3.
   - `player/gojo` : contient les images du player permettant de faire l'animation du player.
 
 * `src` : répertoire contenant le code source du jeu :
-        - `composant` : contient les fichiers des composant utilisés pour le jeu.
-        - `core` : contient les fichiers utilisés pour le maintient du jeu dans son ensemble
-        - `systems` : contient les systèmes utilisés pour tous ce qui va être de l'affichage et des déplacements du player.
+  - `composant` : contient les fichiers des composant utilisés pour le jeu.
+  - `core` : contient les fichiers utilisés pour le maintient du jeu dans son ensemble
+  - `systems` : contient les systèmes utilisés pour tous ce qui va être de l'affichage et des déplacements du player.
