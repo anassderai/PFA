@@ -42,7 +42,7 @@ let player_mass = 5.0
 let player_texture = Texture.blue
 
 let player_up = Vector.{ x = 0.0; y = -5.0 }
-let player_down = Vector.sub Vector.zero player_up
+let player_down = Vector.{ x = 0.0; y = 5.0 }
 let player_right = Vector.{ x = 5.0; y = 0.0 } 
 let player_left = Vector.{ x = -5.0; y = 0.0 }
 let player_jump = Vector.{ x = 0.0; y = -50.0 }

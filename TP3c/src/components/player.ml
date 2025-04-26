@@ -30,6 +30,9 @@ let create x y w h texture mass =
   p
 
 let move_player player vector =
+  (* let s = player#sum_forces#get in
+  let new_s = Vector.add s vector in
+  player#sum_forces#set new_s *)
   let pos = player#pos#get in
   let new_pos = Vector.add pos vector in
   player#pos#set new_pos
