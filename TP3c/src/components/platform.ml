@@ -49,6 +49,22 @@ let platform_2 () =
       create 176 512 104 4;
     |]
 
+let platform_3 () =
+  platform :=
+    [|
+      create 112 522 160 4;    (* Colline gauche *)
+      create 380 542 70 4;    (* Colline centrale *)
+      create 674 522 114 4;   (* Colline droite *)
+    |]
+    
+let platform_4 () =
+  platform :=
+    [|
+      create 0 400 320 200;
+    |]
+    
+
+
 let unregister () = 
   Array.iter (fun p -> 
     Draw_system.unregister (p :> drawable);

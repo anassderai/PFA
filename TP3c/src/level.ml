@@ -40,18 +40,25 @@ let level_2 () = (* Moon *)
   Platform.unregister ();
   Portal.unregister ();
 
+  Platform.platform_3 ();
   ignore (Portal.create 100 400 64 64 !textures.(4));
   Player.change_room !room
 
 let level_3 () = (* Landscape *)
   Background.set_img !textures.(3);
   Portal.unregister ();
+  Platform.unregister ();
 
   Platform.platform_2 ();
   ignore (Portal.create 36 10 64 64 !textures.(4));
   Player.change_room !room
 
-let level_4 () = ()  
+let level_4 () = (* Fireworks *)  
+  Background.set_img !textures.(2);
+  Portal.unregister ();
+  
+  Platform.unregister ();
+  Platform.platform_4 ()
 
 let level_5 () = ()
 

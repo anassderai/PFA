@@ -5,3 +5,4 @@ landscape.png
 portal.png
 portal_2.png
 box.png
+fireworks.png
