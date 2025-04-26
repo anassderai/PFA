@@ -1,7 +1,0 @@
-desert_background.png
-deepforest.png
-moon.png
-portal.png
-portal_2.png
-box.png
-landscape.png
