@@ -49,17 +49,17 @@ let update _dt el =
   let () = Gfx.fill_rect ctx win_surf 0 0 w h in
 
 
-  Seq.iter (fun (e:t) -> 
+  Seq.iter (fun (e:t) ->    (* Affichage du background *)
     if e#index#get == 0 then 
       let pos = e#pos#get in
       let rect = e#rect#get in
       let txt = e#texture#get in
       Texture.draw ctx win_surf pos rect txt
       ) el;
-  Seq.iter (fun (e:t) ->
+  Seq.iter (fun (e:t) ->    (* Affichage des objets *)
     if e#index#get != 0 then 
       let txt:Texture.t =
-        match e#index#get, e#move#get with
+        match e#index#get, e#move#get with    (* Affichage du player suivant sa position *)
           | 1, (1,0) -> 
             (match e#texture#get with 
               | Texture.Animation a -> (Image a.(0))
@@ -106,7 +106,7 @@ let update _dt el =
             (match e#texture#get with 
               | Texture.Animation a -> (Image a.(13))
               | _ -> failwith "Invalid texture type")
-          | 7, _ -> 
+          | 7, _ ->                           (* Sintillement des platforms lorque le player ne bouge pas*)
             if _dt >= 1000.0 && !dt_no_move <= _dt -. 1000.0 then begin
               if _dt >= 1000.0 && !dt <= _dt -. 1000.0 then begin
                 dt := _dt;
@@ -123,7 +123,9 @@ let update _dt el =
       Texture.draw ctx win_surf pos rect txt
     ) el;
 
-  (* Seq.iter (fun (e : t) ->
+  Gfx.commit ctx
+
+(* Seq.iter (fun (e : t) ->
       let Vector.{ x; y } = e # pos # get in
       let x = int_of_float x in
       let y = int_of_float y in
@@ -135,4 +137,3 @@ let update _dt el =
         | Texture.Image img ->
           Gfx.blit_scale ctx win_surf img x y width height
     ) el; *)
-  Gfx.commit ctx

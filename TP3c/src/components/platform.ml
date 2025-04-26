@@ -61,6 +61,7 @@ let platform_4 () =
   platform :=
     [|
       create 0 424 332 176;
+      create 328 400 4 24;
     |]
     
 
