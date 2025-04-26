@@ -69,11 +69,6 @@ let update _dt el =
               let delta_pos2 = Vector.mult (-.n2) n in
               let pos1 = Vector.add pos1 delta_pos1 in
               let pos2 = Vector.add pos2 delta_pos2 in
-              let s_pos, s_rect = Rect.mdiff pos2 box2 pos1 box1 in
-              if Rect.has_origin s_pos s_rect then begin
-                Gfx.debug "%f, %f, %d x %d\n" s_pos.Vector.x s_pos.Vector.y
-                  s_rect.Rect.width s_rect.Rect.height
-              end;
               e1#pos#set pos1;
               e2#pos#set pos2;
 

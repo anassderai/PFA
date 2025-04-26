@@ -22,11 +22,15 @@ let create x y texture mass =
 
 let box_0 texture =
   boxs := [|
+    create 200 (window_height - ground_thickness - 50) texture 1.0;
+    create 250 (window_height - ground_thickness - 50) texture 1.0;
+    create 250 (window_height - ground_thickness - 50 - 50) texture 1.0;
     create 300 (window_height - ground_thickness - 50) texture 1.0;
     create 300 (window_height - ground_thickness - 50 - 50) texture 1.0;
     create 300 (window_height - ground_thickness - 50 - 50 - 50) texture 1.0;
-    create 300 (window_height - ground_thickness - 50 - 50 - 50 - 50) texture 1.0;
-    create 300 (window_height - ground_thickness - 50 - 50 - 50 - 50 - 50) texture 1.0
+    create 350 (window_height - ground_thickness - 50) texture 1.0;
+    create 350 (window_height - ground_thickness - 50 - 50) texture 1.0;
+    create 400 (window_height - ground_thickness - 50) texture 1.0
   |]
   
 let box_1 texture =
